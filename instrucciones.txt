@@ -1,0 +1,12 @@
+Saludos y gracias por aceptar el trabajo
+las reglas para poder manipular el archivo de fhas son sencillas
+1. editar la ruta del documento llamado "Sin título-1.swd" para poder visualizar lo de flash
+2. De no contar con flash instalado puedes usarlo via web desde el navegador,
+usando la carpeta que esta en "extension flash", para Chrome / Edge / Safari y derivados, 
+si no cuentas con alguno de ellos entra a "https://ruffle.rs/#downloads" y lo descargas para el tuyo
+3. para agregar la extension te vas extensiones y poner en desarrollador, 
+despues agregas la carpeta y ya tendras flash
+4. Disfrutar
+
+
+Eso es todo esperom que sea de su agrado nuestro trabajo, Gracias!!!

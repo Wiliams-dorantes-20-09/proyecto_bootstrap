@@ -1,0 +1,28 @@
+import turtle 
+
+painter = turtle.Turtle()
+
+painter.pencolor("blue")
+
+for i in range(50):
+    painter.forward(50)
+    painter.left(123) # Let's go counterclockwise this time 
+    
+painter.pencolor("violet")
+for i in range(50):
+    painter.forward(100)
+    painter.left(123)
+    
+painter.pencolor("Purple")
+
+for i in range(20):
+    painter.forward(130)
+    painter.left(150) # Let's go counterclockwise this time 
+    
+painter.pencolor("turquoise")
+for i in range(60):
+    painter.forward(170)
+    painter.left(140)
+    
+    
+turtle.done()

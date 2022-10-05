@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="css/estilos.css" rel="stylesheet" type="text/css">
+       <script src="graficos.js"></script>
+
+	<meta charset="utf-8">
+	<title>graficacion java</title>
+</head>
+<body>
+
+	<center><img src="GV.png"/></center>
+
+	<center><h1>Graficacion java</h1><center/> <br>
+<div align="left">
+		<p><b/>Java proporciona la clase Graphics, que permite dibujar elipses, cuadrados, líneas, mostrar texto y también tiene muchos otros métodos de dibujo. Para cualquier programador, es esencial el entendimiento de la clase Graphics, antes de adentrarse en el dibujo en Java.
+La clase Graphics proporciona el entorno de trabajo para cualquier operación gráfica que se realice dentro del AWT.
+
+Para poder pintar, un programa necesita un contexto gráfico válido, representado por una instancia de la clase Graphics. Pero esta clase no se puede instanciar directamente; así que debemos crear un componente y pasarlo al programa como un argumento al método paint().
+
+El único argumento del método paint() es un objeto de esta clase. La clase Graphics dispone de métodos para soportar tres categorías de operaciones gráficas:<br/>
+1) Dibujo de primitivas gráficas,<br/>
+2) Dibujo de texto,<br/>
+3) Presentación de imágenes en formatos *.gif y *.jpeg.<br/>
+
+Además, la clase Graphics mantiene un contexto gráfico: un área de dibujo actual, un color de dibujo del Background y otro del Foreground, un Font con todas sus propiedades, etc.Los ejes están situados en la esquina superior izquierda. Las coordenadas se miden siempre en pixels.</p>
+</div>
+
+<h1>Ejemplo graficacion lineal</h1>
+
+<div align="left">
+<p>Vamos a mostrar el primer ejemplo de graficacion en java primero procederemos a importar las librerias correspondientes  creamos el objeto "ventana" de la clase "JFrame" para la creacion de la ventana y hacerla visible</p>
+</div>
+
+<img src="g1.png" /> <br/> <br/>
+
+<form action="">
+          <h1>Introduce el codigoque le da el tamaño a la ventana grafica</h1>
+       
+              <label ></label><br/>
+               <input id="zise_g" type="text"  />
+              <br/>
+              <button id="comprobar">comprobar</button>
+
+</form>
+
+<div align="left">
+<p>Despues procedemos a la realizacion del metodo paint con la libreria GRAPHICS de ja y le ponemos una variable para interacionas y el codigo  con las cordenadas dibuja las rectas en la ventana de java
+</p>
+</div>
+
+<img src="g2.png" />
+
+<form action="">
+          <h1>Introdusca el objeto para la interaccion de las graficas</h1>
+
+              <label ></label><br/>
+               <input id="paint" type="text"  />
+              <br/>
+              <button id="comprobar1">comprobar</button>
+
+</form>
+
+<center><h1>Resultado de graficacion</h1></center>
+<img src="g3.png" alt="">
+
+<form action="">
+          <h1>cual es codigo que representa la recta diagonal</h1>
+       
+              <label ></label><br/>
+               <input id="rec_dia" type="text"  />
+              <br/>
+              <button id="comprobar2">comprobar</button>
+
+</form>
+<h1>Para darles tonalidad o color el codigo es el siguiente</h1>
+
+<div align="left">
+<img src="g4.png" />
+<div/>
+
+<form action="">
+          <h1>ingresa el codigo que le dio estilo de color rojo a la line</h1>
+       
+              <label ></label><br/>
+               <input id="cod_red" type="text"  />
+              <br/>
+              <button id="comprobar3">comprobar</button>
+
+</form>
+
+
+
+<div >
+<img src="g5.png" />
+</div>
+
+<h1>Figuras basicas en java graphics</h1>
+<p>aqui podemos aprecias los metodos para la creacion de un rectangulo al igual que la de un circulo al igual que los metodos que se utilizan para colorear las figuras tanto en contorno como rellenas</p>
+<img src="g6.png" />
+
+<form action="">
+          <h1>ingresa el codigo que le dio estilo de la grafica del circulo color azul(relleno de azul)</h1>
+       
+              <label ></label><br/>
+               <input id="circulo" type="text"  />
+              <br/>
+              <button id="comprobar4">comprobar</button>
+
+</form>
+
+
+
+<h1>Resultados</h1>
+<img src="g7.png" />
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>fractales ejercicio6</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="keywords" content="sierpinski triangle,sierpinski gasket,sierpinski carpet,waclaw sierpinski,pascal's triangle,sierpinski triangle generator"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css" media="all"/>
+        <link rel="shortcut icon" href="favicon.ico"/>
+        <script src="fractal6.js"></script>
+        <script type="text/javascript" src="js/shCore.js"></script>
+        <script type="text/javascript" src="js/shBrushJScript.js"></script>
+        <link href="css/shCore.css" rel="stylesheet" type="text/css"/>
+        <link href="css/shThemeDefault.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <script type="text/javascript">
+            // Initial setup and display when the page is loaded
+            window.onload = function() {
+                var depth = document.getElementById('depthStepper').value;
+                sierpinski = new Sierpinski();
+                sierpinski.drawSierpinskiTriangle(depth);
+            };
+        
+            function addToDepth(inc) {
+                var value = parseInt(document.getElementById('depthStepper').value, 10);
+                value = isNaN(value) ? 0 : value;
+                value += inc;
+                if (value < 0 || value > 10) {
+                    return;
+                }
+                document.getElementById('depthStepper').value = value;
+                sierpinski.drawSierpinskiTriangle(document.getElementById('depthStepper').value);
+            };
+        </script>
+
+        <div id="container">
+            
+           
+            
+            <div id="content">
+                <h1>Triángulo de Sierpinski</h1>
+                
+          
+            
+                <canvas id="canvas">
+                    Your browser doesn't support the "canvas" tag.
+                </canvas><br/>
+                Recursion depth:
+                <input type="button" onclick="addToDepth(-1);" value="-"/>
+                <input type="text" id="depthStepper" size="2" value="6" 
+                       onchange="sierpinski.drawSierpinskiTriangle(document.getElementById('depthStepper').value);"
+                />
+                <input type="button" onclick="addToDepth(1);" value="+"/>
+            </div>
+            
+        </div>
+    </body>
+</html>

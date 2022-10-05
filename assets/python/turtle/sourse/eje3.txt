@@ -1,0 +1,12 @@
+import turtle
+
+smart = turtle.Turtle()
+#loop 4 times. Everiything i want to repeat is
+#*indented* by four spaces
+
+for i in range(16):
+    smart.forward(50)
+    smart.right(22.5)
+    
+#this isn't indented, so we arend't repeating it
+turtle.done

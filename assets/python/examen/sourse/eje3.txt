@@ -1,0 +1,7 @@
+import cv2
+import numpy as np
+img=cv2.imread('img/img3.jpg',1) 
+dst=cv2.Canny(img,50,50)
+cv2.imshow('original',img)
+cv2.imshow('deteccion de bordes astutos',dst)
+cv2.waitKey(0)

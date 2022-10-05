@@ -1,0 +1,76 @@
+# importing turtle package
+import turtle
+
+# set turtle shape
+turtle.shape("turtle")
+ 
+# set the colormode
+turtle.colormode(255) 
+
+# use forward by 100 pixel
+# default pen color is black
+turtle.forward(100) 
+
+# change the pencolor
+# pencolor is red
+turtle.pencolor("blue")
+
+# use forward by 100 pixel
+# then 90 degrees right
+turtle.right(90)
+turtle.forward(100)
+ 
+# change the pencolor
+# pencolor is blue
+turtle.pencolor("red")
+
+# use forward by 100 pixel
+# then 90 degrees right
+turtle.right(90)
+turtle.forward(100) 
+
+# change the pencolor
+# pencolor is green
+turtle.pencolor("orange")
+
+# use forward by 100 pixel
+# then 90 degrees right
+turtle.right(90)
+turtle.forward(100)
+turtle.pencolor(41,253,31)
+turtle.left(20)
+
+turtle.forward(50)
+turtle.pencolor("violet")
+turtle.left(90)
+turtle.forward(50)
+turtle.pencolor(51,253,41)
+turtle.left(90)
+turtle.forward(50)
+turtle.pencolor(41,153,41)
+turtle.left(90)
+turtle.forward(50)
+turtle.pencolor(41,25,141)
+turtle.left(90)
+
+turtle.left(30)
+
+turtle.forward(50)
+turtle.left(90)
+turtle.forward(50)
+turtle.left(90)
+turtle.forward(50)
+turtle.left(90)
+turtle.forward(50)
+turtle.left(90)
+
+turtle.left(40)
+
+turtle.forward(50)
+turtle.left(90)
+turtle.forward(50)
+turtle.left(90)
+turtle.forward(50)
+turtle.left(90)
+turtle.forward(50)
+turtle.left(90)

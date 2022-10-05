@@ -1,0 +1,10 @@
+import turtle
+
+#Step 2: Create a new turtle. we'll call it "Bob"
+bob= turtle.Turtle();
+
+#Step 3: Move in the direction bob's facing for 50 pixeles
+bob.forward(50);
+
+#Step 4: we're done!
+turtle.done();

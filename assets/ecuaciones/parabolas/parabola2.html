@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<head>
+     <title> parabola 2</title>
+    </head>
+
+     <body onload="draw()">
+        <canvas id="myCanvus" width="1300px" height="640px" style="border:1px dashed black;">
+                       
+        </canvas>
+     </body>
+</html>
+<script type="text/javascript">
+
+    function draw(){
+        var canvas=document.getElementById("myCanvus");
+        var canvasWidth=1300;
+        var canvasHeight=640;
+
+        var context=canvas.getContext("2d");
+        
+        context.fillStyle = "white";
+        context.fillRect(0, 0, canvasWidth, canvasHeight);
+
+        context.strokeStyle = "black";
+        context.fillStyle = "black";
+
+        
+        //  Realizar transformación de coordenadas: coloque el origen en la esquina inferior izquierda, el este es la dirección positiva del eje X y el norte es la dirección positiva del eje Y
+        var offsetY=320;//  Valor de desplazamiento del eje Y, valor positivo de desplazamiento hacia arriba, utilizado para dibujar el eje de coordenadas
+        var offsetX=650;//  Valor de desplazamiento X, valor positivo de desplazamiento a la derecha, utilizado para dibujar el eje de coordenadas
+
+        context.save();
+        context.translate(0+offsetX,canvasHeight-offsetY);
+
+        drawAxisXText(context);//  Es mejor dibujar texto y líneas por separado.
+        drawAxisYText(context);
+        drawTitleText(context);
+
+        context.rotate(getRad(180));
+        context.scale(-1,1);        
+
+        drawAxisX(context);        
+        drawAxisY(context);       
+        drawCurve(context);       
+
+        context.restore();        
+    }
+
+    function drawTitleText(ctx){        
+        ctx.lineWidth=0.5;
+        ctx.strokeStyle='navy';
+        ctx.fillStyle='navy';
+
+        var x=350;
+        var y=-250;
+
+        //  Escribir texto
+                 ctx.fillText ("y = x * x-11 * x + 30 rojo",x,y);    
+        ctx.fillText("y = x * x-4 * x + 4 verde", x, y + 20);    
+        ctx.fillText("y = x * x amarillo", x, y + 40);    
+        ctx.fillText("y = x * x + 4 * x + 5 cal", x, y + 60);    
+        ctx.fillText("y = - (x * x-7 * x + 12) / 5 violeta", x, y + 80);
+        ctx.fillText("y = - (x * x + 2 * x + 2) * 4 marrón", x, y + 100);
+
+        ctx.fillText("Autor: Backfire Hurricane", x + 170, y + 30);
+    }
+
+    function drawCurve(ctx){
+        var cds=[{}];
+        var cds1=[{}];
+        var cds2=[{}];
+        var cds3=[{}];
+        var cds4=[{}];
+        var cds5=[{}];
+        var cds6=[{}];
+
+        var x,y;
+        for(x=-13;x<=13;x+=0.01){    
+            //if (x> 0) {// 0.01 previene la división por desbordamiento cero
+                y=x*x-11*x+30;// 
+                var arr={"x":x,"y":y};
+                cds.push(arr);    
+            //}
+
+            //if(x<-0.01){
+                y=x*x-4*x+4;// 
+                var arr={"x":x,"y":y};
+                cds1.push(arr);    
+            //}
+
+            //if(x>0){
+                y=x*x;// 
+                var arr={"x":x,"y":y};
+                cds2.push(arr);    
+            //}
+
+            //if(x<-0.01){
+                y=x*x+4*x+5;// 
+                var arr={"x":x,"y":y};
+                cds3.push(arr);    
+            //}//
+
+            //if(x>0){
+                y=-(x*x-7*x+12)/5;// 
+                var arr={"x":x,"y":y};
+                cds4.push(arr);    
+            //}
+
+            //if(x>0){
+                y=-(x*x+2*x+2)*4;// 
+                var arr={"x":x,"y":y};
+                cds5.push(arr);    
+            //}
+
+            /*if(x<-0.01){
+                y=1/(x*x*x);// 
+                var arr={"x":x,"y":y};
+                cds6.push(arr);    
+            }*/
+        }
+
+        paintCurve(ctx,"red",cds);
+        paintCurve(ctx,"green",cds1);
+        paintCurve(ctx,"yellow",cds2);
+        paintCurve(ctx,"lime",cds3);
+        paintCurve(ctx,"purple",cds4);
+        paintCurve(ctx,"maroon",cds5);
+        //paintCurve(ctx,"maroon",cds6);*/
+    }
+
+    function paintCurve(ctx,color,cds){
+        var SU=50;// Scale Unit
+
+        ctx.strokeStyle = color;
+        ctx.beginPath();        
+        for(var i=0; i<cds.length; i++){  
+            ctx.lineTo(cds[i].x*SU,cds[i].y*SU);
+        }         
+        ctx.stroke();
+        ctx.closePath();
+    }
+
+    function drawAxisX(ctx){
+        ctx.save();
+        
+        ctx.lineWidth=0.5;
+        ctx.strokeStyle='navy';
+        ctx.fillStyle='navy';
+
+        var start=-650;
+        var end=650;
+
+        //  Desplazarse
+        ctx.beginPath();
+        ctx.moveTo(start, 0);
+        ctx.lineTo(end, 0);
+        ctx.stroke();
+        ctx.closePath();
+
+        //  Dibujar flechas
+        ctx.beginPath();
+        ctx.moveTo(end-Math.cos(getRad(15))*10, Math.sin(getRad(15))*10);
+        ctx.lineTo(end, 0);
+        ctx.lineTo(end-Math.cos(getRad(15))*10, -Math.sin(getRad(15))*10);
+        ctx.stroke();
+        ctx.closePath();
+        
+        //  Dibujar escala
+        var x,y;
+        y=5;
+        for(x=start;x<end;x+=50){
+            ctx.beginPath();
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x, y);
+            
+            ctx.stroke();
+            ctx.closePath();
+        }
+
+        ctx.restore();
+    }
+
+    function drawAxisXText(ctx){        
+        ctx.lineWidth=0.5;
+        ctx.strokeStyle='navy';
+        ctx.fillStyle='navy';
+
+        var start=-650;
+        var end=650;
+
+        //  Escribir texto
+        var x,y=5;
+        for(x=start;x<end;x+=50){
+            ctx.fillText(x/50,x,y+10);
+        }
+    }
+
+    function drawAxisY(ctx){
+        ctx.save();
+        
+        ctx.lineWidth=0.5;
+        ctx.strokeStyle='navy';
+        ctx.fillStyle='navy';
+
+        var start=-300;
+        var end=300;
+
+        //  Desplazarse
+        ctx.beginPath();
+        ctx.moveTo(0, start);
+        ctx.lineTo(0, end);
+        ctx.stroke();
+        ctx.closePath();
+
+        //  Dibujar flechas
+        ctx.beginPath();
+        ctx.moveTo(Math.sin(getRad(15))*10, end-Math.cos(getRad(15))*10);
+        ctx.lineTo(0, end);
+        ctx.lineTo(-Math.sin(getRad(15))*10, end-Math.cos(getRad(15))*10);
+        ctx.stroke();
+        ctx.closePath();
+        
+        //  Dibujar escala
+        var x,y;
+        x=5;
+        for(y=start;y<end;y+=50){
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(0, y);
+            
+            ctx.stroke();
+            ctx.closePath();
+        }
+    }
+
+    function drawAxisYText(ctx){        
+        ctx.lineWidth=0.5;
+        ctx.strokeStyle='navy';
+        ctx.fillStyle='navy';
+
+        var start=-250;
+        var end=350;
+
+        //  Escribir texto
+        var x=-19,y=5;
+        for(y=start;y<end;y+=50){
+
+            if(y!=0){
+                ctx.fillText(-y/50,x,y);
+            }
+        }
+    }
+
+    function getRad(degree){
+        return degree/180*Math.PI;
+    }
+
+    function cutShort(str,length){
+        if(str.length>length){
+            str=str.substr(0,length)+"...";
+        }
+        
+        return str;
+    }
+
+</script>
